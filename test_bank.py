@@ -120,12 +120,8 @@ def test_bank_transfer_insufficient_sender_balance():
     acc1 = bank.open_account("Lord Voldemort")
     acc2 = bank.open_account("Tom Marvolo Riddle")
 
-    transfer_report = bank.transfer(source=acc1, target=acc2, amount=50)
-
-    assert transfer_report == {
-        "status": "failed",
-        "reason": f"Insufficient funds {acc1}",
-    }
+    with pytest.raises(InsufficientTransferBalance):
+        bank.transfer(source=acc1, target=acc2, amount=50)
 
     assert bank.accounts[acc1].balance == 0
     assert bank.accounts[acc2].balance == 0
