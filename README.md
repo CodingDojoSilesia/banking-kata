@@ -11,6 +11,7 @@
 - Pozwala dokonywać transakcji poza bank oraz wewnątrz banku
 - Powinna być możliwość podania oprocentowania dziennego (naliczane po każdym dniu) jak i tego przy transakcji w postaci floata (np 0.00001).
 - Pobiera opłaty od przetrzymywanej gotówki na koniec dnia (0.0002%, lub coś)
+- Dzień to 200 operacji
 
 ## Konto:
 
