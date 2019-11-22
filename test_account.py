@@ -20,6 +20,7 @@ def test_account_withdrawal_enough_balance():
 
     assert acc.balance == 0
 
+
 def test_account_withdrawal_short_balance():
     acc = Account(uuid.uuid4())
 
@@ -29,7 +30,7 @@ def test_account_withdrawal_short_balance():
 
 def test_account_history_log():
     acc_no = uuid.uuid4()
-    acc = Account(acc_no), balance=100)
+    acc = Account(acc_no, balance=100)
     acc.withdrawal(100)
     with pytest.raises(BalanceTooLow):
         acc.withdrawal(100)
@@ -38,10 +39,10 @@ def test_account_history_log():
 
     assert cash == 100
     assert acc.history == sorted(acc.history)  # is it sorted?
-    assert acc.history == [
-        (1573729201.0, f"Account {acc_no} opened with balance 100"),
-        (1573729202.0, "Withdrawal 100"),
-        (1573729203.0, "Withdrawal 100 failed. BalanceTooLow"),
-        (1573729204.0, "Deposit 100"),
-        (1573729205.0, f"Account {acc_no} closed. Returned 100 cash")
+    assert [x.message for x in acc.history] == [
+        f"Account {acc_no} opened with balance 100",
+        "Withdrawal 100",
+        "Withdrawal 100 failed. BalanceTooLow",
+        "Deposit 100",
+        f"Account {acc_no} closed. Returned 100 cash",
     ]
