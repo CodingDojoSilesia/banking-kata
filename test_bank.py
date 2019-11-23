@@ -151,6 +151,15 @@ def test_bank_uptime_increase():
 
     assert bank.uptime == 1
 
+    acc1 = bank.open_account("Tom Marvolo Riddle")
+
+    assert bank.uptime == 2
+
+    bank.deposit(acc1, 100)
+    bank.deposti(acc2, 100)
+
+    assert bank.uptime == 4
+
 
 def test_bank_storage_commission():
     bank = Bank()
