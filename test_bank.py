@@ -151,7 +151,7 @@ def test_bank_uptime_increase():
 
     assert bank.uptime == 1
 
-    acc1 = bank.open_account("Tom Marvolo Riddle")
+    acc2 = bank.open_account("Tom Marvolo Riddle")
 
     assert bank.uptime == 2
 
