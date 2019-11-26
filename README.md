@@ -1,6 +1,20 @@
 # Bank PKO, Profesjonalnie Kradniemy Oszczędności
 
-## Bank:
+## TDD
+
+### mam pipenv
+
+    pipenv install  # tworzenie środowiska
+    pipenv run test  # uruchomienie testów
+
+### nie mam pipenv
+
+    python3 -m venv env  # tworzenie środowiska
+    source src/bin/activate  # aktywacja środowiska
+    pip install -r requirements.txt  # instalacja pakietów
+    pytest  # uruchomienie testów
+
+## Bank
 
 - Ma konta
 - Ma chronologiczny rejestr wszystkich transakcji
@@ -13,7 +27,7 @@
 - Pobiera opłaty od przetrzymywanej gotówki na koniec dnia (0.0002%, lub coś)
 - Dzień to 200 operacji
 
-## Konto:
+## Konto
 
 - Ma obecny stan
 - Ma indywidualny rejestr transakcji
@@ -21,7 +35,7 @@
 - Pozwala na wypłaty
 - Gotówka nie może spaść poniżej zera
 
-## Transakcja:
+## Transakcja
 
 - Uznanie konta
 - Obciążenie konta
