@@ -12,7 +12,7 @@ def test_bank_founding():
     assert bank.history == [(1573729201.0, "Bank mBank has been founded.")]
     assert bank.transfer_commission == 0.0000001
     assert bank.storage_commission == 0.00000001
-    assert bank.accounts == []
+    assert bank.accounts == {}
     assert bank.income == 0.00
     assert bank.uptime == 0
 
