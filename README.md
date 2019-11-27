@@ -10,7 +10,7 @@
 ### nie mam pipenv
 
     python3 -m venv env  # tworzenie środowiska
-    source src/bin/activate  # aktywacja środowiska
+    source env/bin/acivate  # aktywacja środowiska
     pip install -r requirements.txt  # instalacja pakietów
     pytest  # uruchomienie testów
 
