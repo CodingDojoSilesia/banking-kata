@@ -42,3 +42,21 @@
 - Transfer między kontami wewnątrz banku
 - Prowizja jest pobierana podczas transakcji
 - Kwota obciążenia i prowizja nie mogę być większe niż stan konta
+
+## Jak i z co bank pobiera prowizję
+
+### za przelewy
+
+Kazdy przelew w banku obarczony jest kosztem. Koszt pobierany jest od wysyłającego przelew.
+
+Przykład:
+Jeśli ja przelewam do Bartka 100zł to z mojego konta oprócz kwoty 100 zostanie pobrana prowizja.
+
+### za przechowywanie gotówki
+
+Cyklicznie co 200 operacji w banku (kazda czynnośc którą wykonuje bank to operacja) pobierana jest prowizja
+od przetrzymywanej gotówki. Prowizja pobierana jest od wszystkich kont.
+
+Przykład:
+Ja, Batek i Noemi mamy konta po 100zł. Po 200 operacjach bankowych z naszych kont zostanie pobrana prowizja
+za przetrzymywanie gotówki.
