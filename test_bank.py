@@ -1,15 +1,20 @@
 import uuid
 
 import pytest
-from bank import Bank
+from bank import *
 from freezegun import freeze_time
+
 
 
 @freeze_time("2019-11-14 12:00:01")
 def test_bank_founding():
     bank = Bank("mBank")
 
-    assert bank.history == [(1573729201.0, "Bank mBank has been founded.")]
+    #assert bank.history == [(1573729201.0, "Bank mBank has been founded.")] #change test
+
+    assert bank.history[0].message == "Bank mBank has been founded." # add this
+    assert bank.history[0].date == 1573729201.0 # add this
+
     assert bank.transfer_commission == 0.0000001
     assert bank.storage_commission == 0.00000001
     assert bank.accounts == {}
@@ -24,7 +29,7 @@ def test_bank_open_account():
 
     assert uuid.UUID(account_number)
     assert bank.history[0].message == "Bank PKO has been founded."
-    assert bank.history[1].message == f"Account{account_number} has been opened."
+    assert bank.history[1].message == f"Account {account_number} has been opened."
 
 
 def test_bank_open_account_with_initial_balance():
@@ -103,7 +108,7 @@ def test_bank_transfer_successful():
     assert bank.income == 50 * bank.transfer_commission
 
     assert (
-        sum(bank.accounts[acc1].balance, bank.accounts[acc1].balance, bank.income)
+        sum((bank.accounts[acc1].balance, bank.accounts[acc2].balance, bank.income))
         == 100
     )
 
@@ -132,7 +137,8 @@ def test_bank_transfer_insufficient_sender_balance():
         f"Withdrawal of 50. Commission {50 * bank.transfer_commission}"
         in bank.accounts[acc1].history
     )
-    assert f"Deposit of 50" in bank.accounts[acc2].history
+    #assert f"Deposit of 50" in bank.accounts[acc2].history Według mnie zły test, jak może mięć 
+    # w historii 50 skoro nadawca nie ma pieniędzy na przelew ?
 
 
 def test_bank_transfer_to_non_existing_account():
@@ -156,7 +162,7 @@ def test_bank_uptime_increase():
     assert bank.uptime == 2
 
     bank.deposit(acc1, 100)
-    bank.deposti(acc2, 100)
+    bank.deposit(acc2, 100)
 
     assert bank.uptime == 4
 
@@ -173,3 +179,5 @@ def test_bank_storage_commission():
         bank.accounts[acc1].balance
         == opening_balance - opening_balance * bank.storage_commission
     )
+
+
