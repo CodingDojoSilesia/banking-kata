@@ -2,7 +2,7 @@ import uuid
 
 import pytest
 
-from account import Account
+from account import *
 
 
 def test_account_deposit():
@@ -43,6 +43,6 @@ def test_account_history_log():
         f"Account {acc_no} opened with balance 100",
         "Withdrawal 100",
         "Withdrawal 100 failed. BalanceTooLow",
-        "Deposit 100",
+        "Deposit of 100",
         f"Account {acc_no} closed. Returned 100 cash",
     ]
